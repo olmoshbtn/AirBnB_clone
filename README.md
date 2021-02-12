@@ -7,6 +7,7 @@ At the end, we will have a complete web application composed by:
 * A website (the front-end) that shows the final product to everybody: static and dynamic
 * A database or files that store data
 * An API that provides a communication interface between the front-end and our data
+<br>
 
 ### 1. The command interpreter
 * how to start it

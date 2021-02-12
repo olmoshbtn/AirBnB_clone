@@ -8,7 +8,7 @@ At the end, we will have a complete web application composed by:
 * A database or files that store data
 * An API that provides a communication interface between the front-end and our data
 
-![AirBnB Clone implementation](https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/6/d2d06462824fab5846f3.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20210212%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210212T202528Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=bb4eb79f1de431f2742cd51099a51274b35eb3db85315c5dc86b1ac9cf50cf44)
+![AirBnB Clone implementation](https://lh3.googleusercontent.com/pw/ACtC-3eYaqg89XL26Y_DFvTLt4MW-w3C7u1gw9aK8c0lhiC3RYHVdLguOuWW7LZdXu5h0117WqFc9OYEYpAQOnyj6ldRz8EXusQW9_QS5IgmbBnEafXvaXsQVIQleFWUxl31_nOfc68hip5XvQjKooJzWgY=w960-h512-no?authuser=1)
 
 ### Roadmap and documentation
 **1. The console** [doing]

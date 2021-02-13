@@ -11,6 +11,8 @@ At the end, we will have a complete web application composed by:
 ![AirBnB Clone implementation](https://lh3.googleusercontent.com/pw/ACtC-3eYaqg89XL26Y_DFvTLt4MW-w3C7u1gw9aK8c0lhiC3RYHVdLguOuWW7LZdXu5h0117WqFc9OYEYpAQOnyj6ldRz8EXusQW9_QS5IgmbBnEafXvaXsQVIQleFWUxl31_nOfc68hip5XvQjKooJzWgY=w960-h512-no?authuser=1)
 
 ### Roadmap and documentation
+The application won't be built all at once, but step by step. Here it is our roadmap and each step respective documentation:
+
 **1. The console** [doing]
 * how to start it
 * how to use it

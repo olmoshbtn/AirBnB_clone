@@ -1,14 +1,14 @@
 #!/usr/bin/python3
 """Provides base class 'BaseModel' from which all other models will be created
 """
-from models
+import models
 from datetime import datetime
 from uuid import uuid4
 
 
 class BaseModel:
-    """Defines functionality common to all models (attributes/methods)
-    """
+    	"""Defines functionality common to all models (attributes/methods)
+	"""
 
 	def __init__(self, *args, **kwargs):
 		"""Initialization of an instance

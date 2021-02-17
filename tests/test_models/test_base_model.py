@@ -4,7 +4,7 @@
 from datetime import datetime
 from models.base_model import BaseModel
 import unittest
-import uuid
+from uuid import uuid4
 
 
 class TestBaseModel(unittest.TestCase):

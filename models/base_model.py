@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Provides base class 'BaseModel' from which all other models will be created
 """
+import models
 from datetime import datetime
 from uuid import uuid4
 

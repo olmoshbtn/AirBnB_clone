@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 """Unittest for BaseModel"""
+
 from datetime import datetime
 from models.base_model import BaseModel
 import unittest
+import uuid
 
 
 class TestBaseModel(unittest.TestCase):

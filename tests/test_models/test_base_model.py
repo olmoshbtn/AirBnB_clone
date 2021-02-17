@@ -1,49 +1,52 @@
 #!/usr/bin/python3
-"""Unittest for base model module."""
+"""Unittest for BaseModel"""
 
-import unittest
-from models.base_model import BaseModel
 from datetime import datetime
+from models.base_model import BaseModel
+import unittest
 import uuid
 
 
 class TestBaseModel(unittest.TestCase):
-    """ test the base model class"""
+    """Test subclass creation"""
 
-    def test_base_model_id_format(self):
-        """test if UUID is a string"""
-        id_nbr = BaseModel()
-        self.assertIsInstance(id_nbr.id, str)
+    def test_attributes(self):
+        """Attributes testing in different cases"""
 
-    def test_base_model_created_at_format(self):
-        """test if created_at is datetime format"""
-        date = BaseModel()
-        self.assertIsInstance(date.created_at, datetime)
+        inst_1 = BaseModel()
+        inst_2 = BaseModel()
+        # test if id is string
+        self.assertIsInstance(inst_1.id, str)
+        # test not equal id
+        self.assertNotEqual(inst_1.id, inst_2.id)
+        # test if created_at is datetime
+        self.assertIsInstance(inst_1.created_at, datetime)
+        # test if update_at is datetime
+        self.assertIsInstance(inst_1.updated_at, datetime)
 
-    def test_base_model_updated_at_format(self):
-        """test if date and time updated are in datetime format"""
-        date = BaseModel()
-        self.assertIsInstance(date.updated_at, datetime)
+    def test_save(self):
+        """Save method testing"""
 
-    def test_init(self):
-        """Test instantiation"""
-        instance = BaseModel()
-        self.assertIs(type(instance), BaseModel)
-        instance.name = "accomodation"
-        attributes_types = {"id": str, "created_at": datetime,
-                            "updated_at": datetime, "name": str}
-        self.assertEqual(instance.name, "accomodation")
-        self.assertIs(type(attributes_types), dict)
+        inst_1 = BaseModel()
+        # test updated_at before and after save()
+        first_updated_at = inst_1.updated_at
+        inst_1.save()
+        second_updated_at = inst_1.updated_at
+        self.assertNotEqual(first_updated_at, second_updated_at)
+        # test the type of updated_at after save()
+        self.assertIsInstance(inst_1.updated_at, datetime)
 
-    def test_str(self):
-        """test if the str method has the correct output"""
-        instance = BaseModel()
-        string = "[BaseModel] ({}) {}".format(instance.id, instance.__dict__)
-        self.assertEqual(string, str(instance))
+    def test_to_dict(self):
+        """to_dict method testing"""
 
-    def test_updated_at_after_save(self):
-        """test if updated_at has the current datetime after save"""
-        date = BaseModel()
-        date_before_save = date.updated_at
-        date.save()
-        self.assertTrue(date.updated_at > date_before_save)
+        inst_1 = BaseModel()
+        dict_1 = inst_1.to_dict()
+        # Test dict type
+        self.assertIsInstance(dict_1, dict)
+        # test if dictionary updates automatically
+        inst_1.save()
+        dict_2 = inst_1.to_dict()
+        self.assertNotEqual(dict_1["updated_at"], dict_2["updated_at"])
+
+if __name__ == '__main__':
+    unittest.main()

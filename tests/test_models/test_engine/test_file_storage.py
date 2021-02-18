@@ -1,64 +1,35 @@
 #!/usr/bin/python3
-""" This is the module for testing of the file_storage module
-"""
-import json
-from models.base_model import BaseModel
-from models.engine.file_storage import FileStorage
-from models import storage
+"""Unittest for FileStorage"""
+
+import models
+import os
 import unittest
-from os import path
 
 
-class TestFileStorage(unittest.TestCase):
-    """ Class for the creation of tests for the file_storage module
-    """
+class TestFile_Storage(unittest.TestCase):
+    """class TestFile_Storage """
 
-    # Test creation of new objects
-    def test_objects(self):
-        """ Test....
-        """
-        inst1 = BaseModel()
-        inst1.save()
+    def test_docstring(self):
+        """ function test_docstring """
+        msj = "Module doesnt have docstring"
+        obj = models.engine.file_storage.__doc__
+        self.assertIsNotNone(obj, msj)
+        msj = "Classes doesnt have docstring"
+        self.assertIsNotNone(obj, msj)
 
-        # Check if file is created
-        self.assertTrue(path.exists('file.json'))
+    def test_executable_file(self):
+        """ function test_executable_file """
+        is_read_true = os.access("models/engine/file_storage.py", os.R_OK)
+        self.assertTrue(is_read_true)
+        is_write_true = os.access("models/engine/file_storage.py", os.W_OK)
+        self.assertTrue(is_write_true)
+        is_exec_true = os.access("models/engine/file_storage.py", os.X_OK)
+        self.assertTrue(is_exec_true)
 
-        # Check if file is not empyty
-        self.assertTrue(path.getsize('file.json') > 0)
-
-        # Test the all() method through the storage in INIT
-        objects = storage.all()  # In this case this shouldn't be empty
-        self.assertTrue(len(objects) > 0)
-
-        # Test to check if is instance of the class
-        self.assertIsInstance(inst1, BaseModel)
-
-        # Test to check if instance is correctly stored in __objects
-        inst2 = BaseModel()
-        storage.new(inst2)  # New() saves the object in __objects
-        all_objs = storage.all()  # All() returns __objects
-        list_objs = list(all_objs.values())
-        self.assertIn(inst2, list_objs)
-
-        # Test reload() method
-        storage.reload()  # Load the dickts in file.json
-        new_all_objs = storage.all()  # Get the return of the __objects
-        # All_objs == new_all_objs? Answers below
-        self.assertEqual(len(all_objs), len(new_all_objs))
-        # Yes, indeed. Yeppity!
-
-        # Test repetition of objects. all_objs is the original dictionary.
-        storage.new(inst2)
-        inst2.save()
-        objs = storage.all()
-        self.assertEqual(len(objs), len(all_objs))
-        # Object are overwritten/updated
-
-        # Test non-BaseModel object
-        x = 42
-        with self.assertRaises(AttributeError):
-            storage.new(x)  # This fails because x has no id attribute
-
+    def test_is_an_instance(self):
+        """ function test_is_an_instance """
+        my_model = FileStorage()
+        self.assertIsInstance(my_model, FileStorage)
 
 if __name__ == '__main__':
     unittest.main()

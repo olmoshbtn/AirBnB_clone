@@ -31,3 +31,6 @@ class TestFile_Storage(unittest.TestCase):
         """ function test_is_an_instance """
         my_model = FileStorage()
         self.assertIsInstance(my_model, FileStorage)
+
+if __name__ == '__main__':
+    unittest.main()

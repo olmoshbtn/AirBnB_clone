@@ -57,9 +57,11 @@ class HBNBCommand(cmd.Cmd):
             new__object = classes_dic[command[0]]()
         print(new__object.id)
         new__object.save()
-
 """
-    def do_show
+    def do_show(self, line):
+        method to print the string representation
+        based on the class name and id
+
 
 
 

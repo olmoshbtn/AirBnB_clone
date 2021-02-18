@@ -39,7 +39,7 @@ class BaseModel:
         """This method saves the instance and updates the updated_at time"""
 
         self.updated_at = datetime.now()
-        models.storage.save(self)
+        models.storage.save()
 
     def to_dict(self):
         """This method returns a dictionary containing

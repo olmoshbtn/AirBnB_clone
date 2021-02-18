@@ -19,6 +19,8 @@ class BaseModel:
                             strptime(value, "%Y-%m-%dT%H:%M:%S.%f"))
                 elif key != "__class__":
                     setattr(self, key, value)
+                elif key == "__class__":
+                    continue
         else:
             self.id = str(uuid4())
             self.created_at = datetime.now()

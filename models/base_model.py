@@ -3,6 +3,7 @@
 from which all other models will be created"""
 
 from datetime import datetime
+import models
 from uuid import uuid4
 
 
@@ -19,12 +20,11 @@ class BaseModel:
                             strptime(value, "%Y-%m-%dT%H:%M:%S.%f"))
                 elif key != "__class__":
                     setattr(self, key, value)
-                elif key == "__class__":
-                    continue
         else:
             self.id = str(uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
+            models.storage.new(self) 
 
     def __str__(self):
         """String representation of the BaseModel class"""
@@ -39,6 +39,7 @@ class BaseModel:
         """This method saves the instance and updates the updated_at time"""
 
         self.updated_at = datetime.now()
+        models.storage.save(self)
 
     def to_dict(self):
         """This method returns a dictionary containing

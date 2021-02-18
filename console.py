@@ -12,13 +12,15 @@ from models.review import Review
 from models.state import State
 from models.user import User
 
+
+classes_dic = {"BaseModel": BaseModel, "User": User, "State": State,
+                "City": City, "Amenity": Amenity, "Place": Place,
+                "Review": Review}
+
 class HBNBCommand(cmd.Cmd):
     """HBNBCommand line interpreter implementation"""
 
     prompt = "(hbnb) "
-    classes_dic = {"BaseModel": BaseModel, "User": User, "State": State,
-                    "City": City, "Amenity": Amenity, "Place": Place,
-                    "Review": Review}
 
     def do_quit(self, line):
         """method to exit the program"""
@@ -56,6 +58,7 @@ class HBNBCommand(cmd.Cmd):
         print(new__object.id)
         new__object.save()
 
+"""
     def do_show
 
 
@@ -65,6 +68,7 @@ If the class name is missing, print ** class name missing ** (ex: $ show)
 If the class name doesn’t exist, print ** class doesn't exist ** (ex: $ show MyModel)
 If the id is missing, print ** instance id missing ** (ex: $ show BaseModel)
 If the instance of the class name doesn’t exist for the id, print ** no instance found ** (ex: $ show BaseModel 121212)
+"""
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

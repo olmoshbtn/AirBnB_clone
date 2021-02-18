@@ -4,6 +4,7 @@ the class which serializes/deserializes to/from JSON"""
 
 import json
 import models
+from os import path
 
 
 class FileStorage:
@@ -32,16 +33,17 @@ class FileStorage:
         new__objects = {}
         for key in self.__objects:
             new__objects[key] = self.__objects[key].to_dict()
-        with open(self.__file_path, "w", encoding="UTF8") as file:
+        with open(self.__file_path, "w") as file:
             file.write(json.dumps(new__objects))
 
     def reload(self):
         """deserializes JSON file to __objects"""
 
-        try:
-            with open(self.__file_path, "r") as file:
-                __objects = json.load(file)
-            for key, value in __objects.items():
-                self.__objects[key] = eval(value["__class__"])(**value)
-        except:
-            pass
+        if path.exists(self.__file_path):
+            try:
+                with open(self.__file_path, "r") as file:
+                    __objects = json.load(file)
+                for key, value in __objects.items():
+                    self.__objects[key] = eval(value["__class__"])(**value)
+            except Exception:
+                pass

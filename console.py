@@ -125,15 +125,15 @@ class HBNBCommand(cmd.Cmd):
         command = line.split()
         if len(command) == 0:
             print("** class name missing **")
-        if command[0] not in classes_dic:
+        elif command[0] not in classes_dic:
             print("** class doesn't exist **")
-        if len(command) == 1:
+        elif len(command) == 1:
             print("** instance id missing **")
-        if command[0] + "." + command[1] not in models.storage.all():
+        elif command[0] + "." + command[1] not in models.storage.all():
                 print("** no instance found **")
-        if len(command) == 2:
+        elif len(command) == 2:
             print("** attribute name missing **")
-        if len(command) == 3:
+        elif len(command) == 3:
             print("** value missing **")
         else:
             new__object = models.storage.all().get(

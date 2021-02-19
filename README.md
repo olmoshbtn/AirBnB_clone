@@ -73,7 +73,7 @@ This is a built-in command line interpreter that provides a way to interact with
 
     ```
     (hbnb) show User 2f9fa3f9-4de5-4d1b-863a-1d1a140d5868
-    [User] (2f9fa3f9-4de5-4d1b-863a-1d1a140d5868) {'id': 2f9fa3f9-4de5-4d1b-863a-1d1a140d5868', 'created_at': datetime.datetime(2019, 11, 13, 13, 58, 14, 530494), 'updated_at': datetime.datetime(2019, 11, 13, 13, 58, 14, 530515)}
+    [User] (2f9fa3f9-4de5-4d1b-863a-1d1a140d5868) {'id': 2f9fa3f9-4de5-4d1b-863a-1d1a140d5868', 'created_at': datetime.datetime(2021, 02, 18, 13, 58, 14, 530494), 'updated_at': datetime.datetime(2021, 02, 18, 13, 58, 14, 530515)}
     ```
 
     #### Destroy an object

@@ -13,9 +13,10 @@ from models.state import State
 from models.user import User
 
 
-classes_dic = {"BaseModel": BaseModel, "User": User, "State": State,
-                "City": City, "Amenity": Amenity, "Place": Place,
-                "Review": Review}
+classes_dic = {
+    "BaseModel": BaseModel, "User": User, "State": State, "City": City,
+    "Amenity": Amenity, "Place": Place, "Review": Review}
+
 
 class HBNBCommand(cmd.Cmd):
     """HBNBCommand line interpreter implementation"""
@@ -25,7 +26,7 @@ class HBNBCommand(cmd.Cmd):
     def do_quit(self, line):
         """method to exit the program"""
         return True
-    
+
     def do_EOF(self, line):
         """method to exit cleanly"""
         return True
@@ -128,7 +129,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         if len(command) == 1:
             print("** instance id missing **")
-        if command[0] + "." + command[1] not in models.storage.all(): 
+        if command[0] + "." + command[1] not in models.storage.all():
                 print("** no instance found **")
         if len(command) == 2:
             print("** attribute name missing **")

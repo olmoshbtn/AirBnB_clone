@@ -13,10 +13,9 @@ from models.state import State
 from models.user import User
 
 
-classes_dic = {
-    "BaseModel": BaseModel, "User": User, "State": State, "City": City,
-    "Amenity": Amenity, "Place": Place, "Review": Review}
-
+classes_dic = {"BaseModel": BaseModel, "User": User, "State": State,
+                "City": City, "Amenity": Amenity, "Place": Place,
+                "Review": Review}
 
 class HBNBCommand(cmd.Cmd):
     """HBNBCommand line interpreter implementation"""
@@ -26,7 +25,7 @@ class HBNBCommand(cmd.Cmd):
     def do_quit(self, line):
         """method to exit the program"""
         return True
-
+    
     def do_EOF(self, line):
         """method to exit cleanly"""
         return True
@@ -129,12 +128,33 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         if len(command) == 1:
             print("** instance id missing **")
-        if command[0] + "." + command[1] not in models.storage.all():
+        if command[0] + "." + command[1] not in models.storage.all(): 
                 print("** no instance found **")
         if len(command) == 2:
             print("** attribute name missing **")
         if len(command) == 3:
             print("** value missing **")
+        else:
+            new__object = models.storage.all().get(command[0] + '.' + command[1])
+            setattr(new__object, command[2], command[3][1:-1])
+            new__object.save()
+
+    # help update
+    def help_create(self):
+        print("Usage: create <valid class name>")
+
+    def help_show(self):
+        print("Usage: show <valid class name> <valid id>")
+
+    def help_destroy(self):
+        print("Usage: destroy <valid class name> <valid id>")
+
+    def help_all(self):
+        print("Usage: all OR all <valid class name>")
+
+    def help_update(self):
+        print("Usage: update <valid class name>", end="")
+        print("<valid id> <attribute name> <attribute value>")
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

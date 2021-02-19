@@ -57,20 +57,83 @@ class HBNBCommand(cmd.Cmd):
             new__object = classes_dic[command[0]]()
         print(new__object.id)
         new__object.save()
-"""
+
     def do_show(self, line):
-        method to print the string representation
-        based on the class name and id
+        """method to print the string representation
+        based on the class name and id"""
+        command = line.split()
+        if len(command) == 0:
+            print("** class name missing **")
+            return False
+        if command[0] not in classes_dic:
+            print("** class doesn't exist **")
+            return False
+        if len(command) == 1:
+            print("** instance id missing **")
+        if len(command) == 2:
+            new__object = command[0] + "." + command[1]
+            if new__object not in models.storage.all():
+                print("** no instance found **")
+            else:
+                print(models.storage.all()[new__object])
 
+    def do_destroy(self, line):
+        """method to delete an instance based on the class name and id,
+        saving the change into the JSON file"""
+        command = line.split()
+        if len(command) == 0:
+            print("** class name missing **")
+            return False
+        if command[0] not in classes_dic:
+            print("** class doesn't exist **")
+            return False
+        if len(command) == 1:
+            print("** instance id missing **")
+        if len(command) == 2:
+            new__object = command[0] + "." + command[1]
+            if new__object not in models.storage.all():
+                print("** no instance found **")
+            else:
+                models.storage.all().pop(new__object)
+                models.storage.save()
 
+    def do_all(self, line):
+        """method to print all string representation of all instances
+        based or not on the class name"""
+        try:
+            tokens = line.split()
+        except ValueError:
+            return None
+        objects = models.storage.all()
+        if len(tokens) < 1:
+            print([str(obj) for obj in objects.values()])
+        else:
+            cls = models.getmodel(tokens[0])
+            if cls is None:
+                print("** class doesn't exist **")
+            else:
+                matches = []
+                for obj in objects.values():
+                    if type(obj) is cls:
+                        matches.append(str(obj))
+                print(matches)
 
-
-    show: Prints the string representation of an instance based on the class name and id. Ex: $ show BaseModel 1234-1234-1234.
-If the class name is missing, print ** class name missing ** (ex: $ show)
-If the class name doesn’t exist, print ** class doesn't exist ** (ex: $ show MyModel)
-If the id is missing, print ** instance id missing ** (ex: $ show BaseModel)
-If the instance of the class name doesn’t exist for the id, print ** no instance found ** (ex: $ show BaseModel 121212)
-"""
+    def do_update(self, line):
+        """method to update the instance based on the class name
+        and id by adding or updating attribute"""
+        command = line.split()
+        if len(command) == 0:
+            print("** class name missing **")
+        if command[0] not in classes_dic:
+            print("** class doesn't exist **")
+        if len(command) == 1:
+            print("** instance id missing **")
+        if command[0] + "." + command[1] not in models.storage.all(): 
+                print("** no instance found **")
+        if len(command) == 2:
+            print("** attribute name missing **")
+        if len(command) == 3:
+            print("** value missing **")
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

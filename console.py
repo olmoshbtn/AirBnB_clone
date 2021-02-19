@@ -32,17 +32,17 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def emptyline(self):
-        """method to bypassing empty line entered and
-        not executing previous command"""
+        """method to bypass empty line entered and
+        not execute previous command"""
         pass
 
     def help_quit(self):
         """method to print help for quit method"""
-        print("This is a method to exit the program")
+        print("This is a method to exit the program. Usage: quit")
 
     def help_EOF(self):
         """method to print help for EOF method"""
-        print("This is a method to exit the program cleanly")
+        print("This is a method to exit the program cleanly. Usage: EOF")
 
     def do_create(self, line):
         """method to create, save to json
@@ -143,20 +143,29 @@ class HBNBCommand(cmd.Cmd):
 
     # help update
     def help_create(self):
-        print("Usage: create <valid class name>")
+        """method to print help for create method"""
+        print("This is a method to create a new BaseModel instance. \
+Usage: create <valid class name>")
 
     def help_show(self):
-        print("Usage: show <valid class name> <valid id>")
+        """method to print help for show method"""
+        print("This is a method to print an object's string representation. \
+Usage: show <valid class name> <valid id>")
 
     def help_destroy(self):
-        print("Usage: destroy <valid class name> <valid id>")
+        """method to print help for destroy method"""
+        print("This is a method to delete an instance. \
+Usage: destroy <valid class name> <valid id>")
 
     def help_all(self):
-        print("Usage: all OR all <valid class name>")
+        """method to print help for all method"""
+        print("This is a method to print all string \
+representation of all instances. Usage: all OR all <valid class name>")
 
     def help_update(self):
-        print("Usage: update <valid class name>", end="")
-        print("<valid id> <attribute name> <attribute value>")
+        """method to print help for update method"""
+        print("This is a method to update an instance. Usage: \
+update <valid class name> <valid id> <attribute name> <attribute value>")
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

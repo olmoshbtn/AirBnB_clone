@@ -29,7 +29,7 @@ This is a built-in command line interpreter that provides a way to interact with
 * Objects management (creation, updating, destroying, etc.) via a console / command interpreter
 * Objects storage and persistency to a JSON file
 
-    #### a. How to start it <a name="11"></a>
+    #### i. How to start it <a name="11"></a>
     **First.** Clone this repository: <https://github.com/nicolasportela/AirBnB_clone.git>
 
     **Second.** Go to the repo. 
@@ -37,28 +37,48 @@ This is a built-in command line interpreter that provides a way to interact with
     **Third.** From its root directory, run:
     `<$ ./console.py>`
 
-    #### b. How to use it <a name="12"></a>
+    #### ii. How to use it <a name="12"></a>
 
     Once you run the previous command, the following prompt will emerge:
-    `<(hbnb)>` 
+    
+    `<(hbnb) >` 
+    
     Ready to work!
 
     **Available Commands**
-Command |   Arguments   |   Description
---------|---------------|---------------
-`<create>`  |   `<class name>`    | `<Creates a new class from the available class-list>`
-show	<class name> <id>	Prints the string representation of an instance based on the class name and id.
-destroy	<class name> <id>	Deletes an instance based on the class name and id (save the change into the JSON file).
-all	[ <class name>]	Prints all string representation of all instances based or not on the class name
-update	<class name> <id> <attribute name> "<attribute value>"	Updates an instance based on the class name and id by adding or updating attribute (save the change into the JSON file
-.all()	<class name>.all()	Retrieves all instances of a class
-.count()	<class name>.count()	Retrieves the number of instances of a class
-.show(<id>)	<class name>.show(<id>)	Retrieves an instance based on its ID
-.destroy(<id>)	<class name>.destroy(<id>)	Destroys an instance based on his ID
-.update(<id>, <attr name>, <attr value>)	<class name>.update(<id>, <attr name>, <attr value>)	Updates an instance based on his ID
-.dupdate(<id>, <dict repr>)	<class name>.update(<id>, <dictionary representation>)	Updates an instance based on his ID with a dictionary
+    * `<EOF>`
 
-    #### c. Examples <a name="13"></a>
+    * `<quit>`
+
+    * `<create>`
+
+    * `<show>`
+
+    * `<destroy>`
+
+    * `<all>`
+
+    * `<update>`
+
+    * Run `<help>` for more information
+
+    #### iii. Examples <a name="13"></a>
+
+    **Create an User**
+
+    `<(hbnb) create User  # command run>`
+    `<2f9fa3f9-4de5-4d1b-863a-1d1a140d5868  # id retrieved>`
+
+    **Show a previously created object**
+
+    `<(hbnb) show User 2f9fa3f9-4de5-4d1b-863a-1d1a140d5868>`
+    `<[User] (2f9fa3f9-4de5-4d1b-863a-1d1a140d5868) {'id': '2f9fa3f9-4de5-4d1b-863a-1d1a140d5868', 'created_at': datetime.datetime(2019, 11, 13, 13, 58, 14, 530494), 'updated_at': datetime.datetime(2019, 11, 13, 13, 58, 14, 530515)}>`
+
+    **Destroy an object**
+
+    `<(hbnb) destroy User 2f9fa3f9-4de5-4d1b-863a-1d1a140d5868>`
+    `<(hbnb) show User 2f9fa3f9-4de5-4d1b-863a-1d1a140d5868>`
+    `<*** instance not found ***>`
 
 ### 2. Web static [to-do] <a name="2"></a>
 

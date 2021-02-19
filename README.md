@@ -29,15 +29,16 @@ This is a built-in command line interpreter that provides a way to interact with
 * Objects management (creation, updating, destroying, etc.) via a console / command interpreter
 * Objects storage and persistency to a JSON file
 
-    #### i. How to start it <a name="11"></a>
-    **First.** Clone this repository: <https://github.com/nicolasportela/AirBnB_clone.git>
+    ### i. How to start it <a name="11"></a>
 
-    **Second.** Go to the repo. 
+    #### First. Clone this repository: <https://github.com/nicolasportela/AirBnB_clone.git>
 
-    **Third.** From its root directory, run:
+    #### Second. Go to the repo. 
+
+    #### Third. From its root directory, run:
     `$ ./console.py`
 
-    #### ii. How to use it <a name="12"></a>
+    ### ii. How to use it <a name="12"></a>
 
     Once you run the previous command, the following prompt will emerge:
     
@@ -45,7 +46,7 @@ This is a built-in command line interpreter that provides a way to interact with
     
     Ready to work!
 
-    **Available Commands**
+    #### Available Commands
     * `EOF`
 
     * `quit`
@@ -62,23 +63,29 @@ This is a built-in command line interpreter that provides a way to interact with
 
     * Run `help` for more information
 
-    #### iii. Examples <a name="13"></a>
+    ### iii. Examples <a name="13"></a>
 
-    **Create an User**
+    #### Create an User
 
-    `(hbnb) create User  # command run`
-    `2f9fa3f9-4de5-4d1b-863a-1d1a140d5868  # id retrieved`
+    ```
+    (hbnb) create User  # command run
+    2f9fa3f9-4de5-4d1b-863a-1d1a140d5868  # id retrieved
+    ```
 
-    **Show a previously created object**
+    #### Show a previously created object
 
-    `(hbnb) show User 2f9fa3f9-4de5-4d1b-863a-1d1a140d5868`
-    `[User] (2f9fa3f9-4de5-4d1b-863a-1d1a140d5868) {'id': '2f9fa3f9-4de5-4d1b-863a-1d1a140d5868', 'created_at': datetime.datetime(2019, 11, 13, 13, 58, 14, 530494), 'updated_at': datetime.datetime(2019, 11, 13, 13, 58, 14, 530515)}`
+    ```
+    (hbnb) show User 2f9fa3f9-4de5-4d1b-863a-1d1a140d5868
+    [User] (2f9fa3f9-4de5-4d1b-863a-1d1a140d5868) {'id': 2f9fa3f9-4de5-4d1b-863a-1d1a140d5868', 'created_at': datetime.datetime(2019, 11, 13, 13, 58, 14, 530494), 'updated_at': datetime.datetime(2019, 11, 13, 13, 58, 14, 530515)}
+    ```
 
-    **Destroy an object**
+    #### Destroy an object
 
-    `(hbnb) destroy User 2f9fa3f9-4de5-4d1b-863a-1d1a140d5868`
-    `(hbnb) show User 2f9fa3f9-4de5-4d1b-863a-1d1a140d5868`
-    `*** instance not found ***`
+    ```
+    (hbnb) destroy User 2f9fa3f9-4de5-4d1b-863a-1d1a140d5868
+    (hbnb) show User 2f9fa3f9-4de5-4d1b-863a-1d1a140d5868
+    *** instance not found ***
+    ```
 
 ### 2. Web static [to-do] <a name="2"></a>
 

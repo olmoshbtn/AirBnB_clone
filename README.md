@@ -31,14 +31,11 @@ This is a built-in command line interpreter that provides a way to interact with
 
     ### i. How to start it <a name="11"></a>
 
-    #### First 
-    Clone this repository: <https://github.com/nicolasportela/AirBnB_clone.git>
+    **First.** Clone this repository: <https://github.com/nicolasportela/AirBnB_clone.git>
 
-    #### Second 
-    Go to the repo. 
+    **Second.** Go to the repo. 
 
-    #### Third 
-    From its root directory, run: `$ ./console.py`
+    **Third.** From its root directory, run: `$ ./console.py`
 
     ### ii. How to use it <a name="12"></a>
 

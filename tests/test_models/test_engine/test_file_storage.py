@@ -2,6 +2,7 @@
 """Unittest for FileStorage"""
 
 import models
+from models.engine.file_storage import FileStorage
 import os
 import unittest
 

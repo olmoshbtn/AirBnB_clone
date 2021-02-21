@@ -102,11 +102,11 @@ class HBNBCommand(cmd.Cmd):
         """method to print all string representation of all instances
         based or not on the class name"""
         list_obj = []
-        new__object = storage.all()
-        if line and line not in self.classes_dic:
+        new__object = models.storage.all()
+        if line and (line not in classes_dic):
             print("** class doesn't exist **")
             return
-        if line in self.classes_dic:
+        if line in classes_dic:
             for key, value in new__object.items():
                 if line in key:
                     split_key = key.split(".")

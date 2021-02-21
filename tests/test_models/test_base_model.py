@@ -43,7 +43,7 @@ class TestBaseModel(unittest.TestCase):
         my_base20.save()
         self.assertLess(first_updated_at, my_base20.updated_at)
 
-    def test_saves(self):
+    def test_save2(self):
         """save method testing"""
         my_base21 = BaseModel()
         sleep(0.05)
@@ -54,6 +54,20 @@ class TestBaseModel(unittest.TestCase):
         sleep(0.05)
         my_base21.save()
         self.assertLess(second_updated_at, my_base21.updated_at)
+
+    def test_save3(self):
+        """save method testing"""
+        my_base22 = BaseModel()
+        with self.assertRaises(TypeError):
+            my_base22.save(None)
+
+    def test_save4(self):
+        """save method testing"""
+        my_base23 = BaseModel()
+        my_base23.save()
+        my_base23id = "BaseModel." + my_base23.id
+        with open("file.json", "r") as f:
+            self.assertIn(my_base23id, f.read())
 
     def test_to_dict(self):
         """to_dict method testing"""

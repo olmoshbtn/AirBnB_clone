@@ -29,7 +29,7 @@ class BaseModel:
     def __str__(self):
         """String representation of the BaseModel class"""
 
-        return "[{model}] ({ident}) {attrs}".format(
+        return "[{}] ({}) {}".format(
             model=self.__class__.__name__,
             ident=self.id,
             attrs=self.__dict__,

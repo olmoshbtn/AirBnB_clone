@@ -3,6 +3,7 @@
 
 from datetime import datetime
 from models.base_model import BaseModel
+from time import sleep
 import unittest
 from uuid import uuid4
 
@@ -43,18 +44,6 @@ class TestBaseModel(unittest.TestCase):
         first_updated_at = my_base20.updated_at
         my_base20.save()
         self.assertLess(first_updated_at, my_base20.updated_at)
-
-    def test_Save2(self):
-        """save method testing"""
-        my_base21 = BaseModel()
-        sleep(0.05)
-        first_updated_at = my_base21.updated_at
-        my_base21.save()
-        second_updated_at = my_base21.updated_at
-        self.assertLess(first_updated_at, second_updated_at)
-        sleep(0.05)
-        my_base21.save()
-        self.assertLess(second_updated_at, my_base21.updated_at)
 
     def test_to_dict(self):
         """to_dict method testing"""

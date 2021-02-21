@@ -54,7 +54,7 @@ class TestBaseModel(unittest.TestCase):
         my_base25 = BaseModel()
         my_base25printed = my_base25.__str__()
         self.assertEqual(my_base25printed,
-                        s.format(my_base25.id, my_base25.__dict__))
+                         s.format(my_base25.id, my_base25.__dict__))
 
 
 if __name__ == '__main__':

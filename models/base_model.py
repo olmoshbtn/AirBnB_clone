@@ -29,10 +29,10 @@ class BaseModel:
     def __str__(self):
         """String representation of the BaseModel class"""
 
-        return "[{model}] ({ident}) {attrs}".format(
-            model=self.__class__.__name__,
-            ident=self.id,
-            attrs=self.__dict__,
+        return "[{}] ({}) {}".format(
+            self.__class__.__name__,
+            self.id,
+            self.__dict__,
             )
 
     def save(self):

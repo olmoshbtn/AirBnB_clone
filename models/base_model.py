@@ -23,10 +23,8 @@ class BaseModel:
         else:
             self.id = str(uuid4())
             self.created_at = datetime.now()
-            self.updated_at = datetime.now()
+            self.updated_at = self.created_at
             models.storage.new(self)
-            models.storage.save()
-
 
     def __str__(self):
         """String representation of the BaseModel class"""
@@ -48,7 +46,7 @@ class BaseModel:
         all keys/values of __dict__ of the instance"""
 
         dictionary = dict(self.__dict__)
-        dictionary["__class__"] = str(type(self).__name__)
+        dictionary["__class__"] = self.__class__.__name__
         dictionary["updated_at"] = self.updated_at.isoformat()
         dictionary["created_at"] = self.created_at.isoformat()
         return dictionary

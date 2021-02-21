@@ -24,7 +24,7 @@ class TestBaseModel(unittest.TestCase):
         # test if update_at is datetime
         self.assertIsInstance(inst_1.updated_at, datetime)
 
-    def test_save(self):
+    def test_save0(self):
         """Save method testing"""
 
         inst_1 = BaseModel()
@@ -35,6 +35,26 @@ class TestBaseModel(unittest.TestCase):
         self.assertNotEqual(first_updated_at, second_updated_at)
         # test the type of updated_at after save()
         self.assertIsInstance(inst_1.updated_at, datetime)
+
+    def test_save1(self):
+        """save method testing"""
+        my_base20 = BaseModel()
+        sleep(0.05)
+        first_updated_at = my_base20.updated_at
+        my_base20.save()
+        self.assertLess(first_updated_at, my_base20.updated_at)
+
+    def test_Save2(self):
+        """save method testing"""
+        my_base21 = BaseModel()
+        sleep(0.05)
+        first_updated_at = my_base21.updated_at
+        my_base21.save()
+        second_updated_at = my_base21.updated_at
+        self.assertLess(first_updated_at, second_updated_at)
+        sleep(0.05)
+        my_base21.save()
+        self.assertLess(second_updated_at, my_base21.updated_at)
 
     def test_to_dict(self):
         """to_dict method testing"""

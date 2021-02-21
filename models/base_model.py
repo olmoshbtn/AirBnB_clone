@@ -25,6 +25,8 @@ class BaseModel:
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
             models.storage.new(self)
+            models.storage.save()
+
 
     def __str__(self):
         """String representation of the BaseModel class"""
@@ -45,8 +47,8 @@ class BaseModel:
         """This method returns a dictionary containing
         all keys/values of __dict__ of the instance"""
 
-        dictionary = self.__dict__.copy()
-        dictionary["__class__"] = self.__class__.__name__
+        dictionary = dict(self.__dict__)
+        dictionary["__class__"] = str(type(self).__name__)
         dictionary["updated_at"] = self.updated_at.isoformat()
         dictionary["created_at"] = self.created_at.isoformat()
         return dictionary

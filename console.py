@@ -111,7 +111,6 @@ class HBNBCommand(cmd.Cmd):
                 if line in key:
                     split_key = key.split(".")
                     new_key = "[" + split_key[0] + "] (" + split_key[1] + ")"
-
                     list_obj.append(new_key + " " + str(value))
         else:
             for key, value in new__object.items():

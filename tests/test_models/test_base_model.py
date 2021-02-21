@@ -3,7 +3,6 @@
 
 from datetime import datetime
 from models.base_model import BaseModel
-from time import sleep
 import unittest
 from uuid import uuid4
 

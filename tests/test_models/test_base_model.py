@@ -48,5 +48,14 @@ class TestBaseModel(unittest.TestCase):
         dict_2 = inst_1.to_dict()
         self.assertNotEqual(dict_1["updated_at"], dict_2["updated_at"])
 
+    def test_str(self):
+        """__str__ method testing"""
+        s = "[BaseModel] ({}) {}"
+        my_base25 = BaseModel()
+        my_base25printed = my_base25.__str__()
+        self.assertEqual(my_base25printed,
+                        s.format(my_base25.id, my_base25.__dict__))
+
+
 if __name__ == '__main__':
     unittest.main()

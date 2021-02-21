@@ -3,7 +3,6 @@
 from which all other models will be created"""
 
 from datetime import datetime
-import json
 import models
 from uuid import uuid4
 
@@ -23,7 +22,7 @@ class BaseModel:
                     setattr(self, key, value)
         else:
             self.id = str(uuid4())
-            self.created_at = datetime.now()
+            self.created_at = datetime.utcnow()
             self.updated_at = self.created_at
             models.storage.new(self)
 
@@ -39,7 +38,7 @@ class BaseModel:
     def save(self):
         """This method saves the instance and updates the updated_at time"""
 
-        self.updated_at = datetime.now()
+        self.updated_at = datetime.utcnow()
         models.storage.save()
 
     def to_dict(self):

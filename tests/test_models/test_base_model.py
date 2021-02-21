@@ -13,7 +13,6 @@ class TestBaseModel(unittest.TestCase):
 
     def test_attributes(self):
         """Attributes testing in different cases"""
-
         inst_1 = BaseModel()
         inst_2 = BaseModel()
         # test if id is string
@@ -27,7 +26,6 @@ class TestBaseModel(unittest.TestCase):
 
     def test_save0(self):
         """Save method testing"""
-
         inst_1 = BaseModel()
         # test updated_at before and after save()
         first_updated_at = inst_1.updated_at
@@ -45,9 +43,20 @@ class TestBaseModel(unittest.TestCase):
         my_base20.save()
         self.assertLess(first_updated_at, my_base20.updated_at)
 
+    def test_saves(self):
+        """save method testing"""
+        my_base21 = BaseModel()
+        sleep(0.05)
+        first_updated_at = my_base21.updated_at
+        my_base21.save()
+        second_updated_at = my_base21.updated_at
+        self.assertLess(first_updated_at, second_updated_at)
+        sleep(0.05)
+        my_base21.save()
+        self.assertLess(second_updated_at, my_base21.updated_at)
+
     def test_to_dict(self):
         """to_dict method testing"""
-
         inst_1 = BaseModel()
         dict_1 = inst_1.to_dict()
         # Test dict type

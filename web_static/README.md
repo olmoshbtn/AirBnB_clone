@@ -14,4 +14,4 @@ The first step is to “design” / “sketch” / “prototype” each element:
 * No Javascript
 * No data loaded from anything
 
-![Web static](https://photos.google.com/share/AF1QipPCu1lAtJH9AWDEUgiP2MrEh3EvcuBIndBjew6ozibGEd77hV3d4NnShDVOVsJPgA/photo/AF1QipOf5Wca4xhDBt_M7kECQzLXJcc1El4r3-htcCiZ?key=NllsemtGdnFJMWY2UmpEQUxrb3pKSExoUUM2c3VR)
+![Web static](https://photos.app.goo.gl/GjqWVbYY7N6XZocj9)

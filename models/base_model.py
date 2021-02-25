@@ -23,16 +23,16 @@ class BaseModel:
         else:
             self.id = str(uuid4())
             self.created_at = datetime.now()
-            self.updated_at = datetime.now()
+            self.updated_at = self.created_at
             models.storage.new(self)
 
     def __str__(self):
         """String representation of the BaseModel class"""
 
-        return "[{model}] ({ident}) {attrs}".format(
-            model=self.__class__.__name__,
-            ident=self.id,
-            attrs=self.__dict__,
+        return "[{}] ({}) {}".format(
+            self.__class__.__name__,
+            self.id,
+            self.__dict__,
             )
 
     def save(self):
@@ -43,9 +43,9 @@ class BaseModel:
 
     def to_dict(self):
         """This method returns a dictionary containing
-        all keys/values of __dict__ of the instance"""
+        all keys/values of the instance"""
 
-        dictionary = self.__dict__.copy()
+        dictionary = dict(self.__dict__)
         dictionary["__class__"] = self.__class__.__name__
         dictionary["updated_at"] = self.updated_at.isoformat()
         dictionary["created_at"] = self.created_at.isoformat()

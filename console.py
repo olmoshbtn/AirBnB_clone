@@ -101,23 +101,21 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, line):
         """method to print all string representation of all instances
         based or not on the class name"""
-        try:
-            tokens = line.split()
-        except ValueError:
-            return None
-        objects = models.storage.all()
-        if len(tokens) < 1:
-            print([str(obj) for obj in objects.values()])
+        list_obj = []
+        new__object = models.storage.all()
+        if line and (line not in classes_dic):
+            print("** class doesn't exist **")
+            return
+        if line in classes_dic:
+            for key, value in new__object.items():
+                if line in key:
+                    split_key = key.split(".")
+                    new_key = "[" + split_key[0] + "] (" + split_key[1] + ")"
+                    list_obj.append(new_key + " " + str(value))
         else:
-            cls = models.getmodel(tokens[0])
-            if cls is None:
-                print("** class doesn't exist **")
-            else:
-                matches = []
-                for obj in objects.values():
-                    if type(obj) is cls:
-                        matches.append(str(obj))
-                print(matches)
+            for key, value in new__object.items():
+                list_obj.append(str(key) + " " + str(value))
+        print(list_obj)
 
     def do_update(self, line):
         """method to update the instance based on the class name

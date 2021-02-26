@@ -84,7 +84,7 @@ This is a built-in command line interpreter that provides a way to interact with
     *** instance not found ***
     ```
 
-### 2. Web static [to-do] <a name="2"></a>
+### 2. Web static [doing] <a name="2"></a>
 
 ### 3. MySQL storage [to-do] <a name="3"></a>
 

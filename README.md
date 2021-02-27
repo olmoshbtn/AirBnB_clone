@@ -1,5 +1,5 @@
 # AirBnB clone
-test
+
 This project aims to deploy on our server a simple copy of the [AirBnB website](https://airbnb.com). We won’t implement all the features, only some of them to cover all fundamental concepts of the higher level programming track.
 
 At the end, we will have a complete web application composed by:

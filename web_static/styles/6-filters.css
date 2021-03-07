@@ -60,6 +60,7 @@
     width: 100%;
     top: 100%;
     margin-top: 0;
+    margin: auto;
 }
 
 div:hover > .popover {
@@ -69,6 +70,7 @@ div:hover > .popover {
 
 .popover h2 {
     font-size: 16px;
+    margin: auto;
 }
 
 .popover li {

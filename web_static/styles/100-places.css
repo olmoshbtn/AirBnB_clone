@@ -20,8 +20,12 @@ article {
 }
 
 .information {
+    height: 80px;
+    border-top: 1px solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 article h2 {
@@ -44,16 +48,8 @@ article h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 5%;
+    top: 2%;
     right: 7%;
-}
-
-.information {
-    height: 80px;
-    border-top: 1px solid #DDDDDD;
-    border-bottom: 1px solid #DDDDDD;
-    display: flex;
-    justify-content: center;
 }
 
 .max_guest, .number_rooms, .number_bathrooms {
@@ -79,4 +75,61 @@ article h2 {
 
 .user {
     margin: 10px auto;
+}
+
+.places .amenities h2 {
+    padding: 5% 0 5% 0;
+    padding-bottom: 2%;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+.places .amenities>ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+}
+
+.places .amenities>ul li {
+    background-size: 20px;
+    padding-left: 25px;
+    padding-bottom: 25px;
+    background-repeat: no-repeat;
+    line-height: 25px;
+}
+
+.tv {
+    background-image: url(../images/icon_tv.png);
+}
+
+.wifi {
+    background-image: url(../images/icon_wifi.png);
+}
+
+.pets {
+    background-image: url(../images/icon_pets.png);
+}
+
+.reviews {
+    margin-bottom: 5%;
+}
+
+.places .reviews>ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+}
+
+.places .reviews ul li h3 {
+    margin-top: 0;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
+}
+
+.places .reviews ul li p {
+    padding-bottom: 5%;
+    margin-top: 0px;
 }
